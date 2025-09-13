@@ -11,6 +11,20 @@
     pkgs = nixpkgs.legacyPackages.${system};
   in
   {
+    packages.${system}.default = pkgs.rustPlatform.buildRustPackage {
+      name = "learn-wgpu";
+      src = ./.;
+      buildInputs = with pkgs; [
+        wayland
+        libxkbcommon
+        vulkan-headers
+        vulkan-loader
+        vulkan-tools
+      ];
+      nativeBuildInputs = [ pkgs.pkg-config ];
+      cargoLock.lockFile = ./Cargo.lock;
+    };
+
     devShells.${system}.default = (import ./shell.nix { inherit pkgs;});
   };
 }

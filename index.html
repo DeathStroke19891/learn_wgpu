@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Learn wgpu</title>
+    <style>
+      canvas {
+        background-color: black;
+      }
+    </style>
+  </head>
+
+  <body>
+    <canvas id="canvas" width="800" height="600"></canvas>
+
+    {{ NO_MODULE }}
+    <script type="module">
+      // {{ MODULE }}
+    </script>
+
+    <script>
+      document.body.addEventListener("contextmenu", (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+      });
+    </script>
+  </body>
+</html>
