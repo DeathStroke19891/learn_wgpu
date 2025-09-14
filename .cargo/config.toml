@@ -1,2 +1,2 @@
-[target.wasm32-unknown-unknown]
-runner = "wasm-server-runner"
+[target.x86_64-unknown-linux-gnu]
+rustflags = ["-Clink-args=-Wl,-rpath=/nix/store/c2x3adnrg6ycfpjyw7b5s6vqrjrv3ycq-wayland-1.24.0/lib:/nix/store/a6jqg9nhgpzmzfnbvi8r0f21z8d69h51-libxkbcommon-1.10.0/lib:/nix/store/61pmh07db04qvy2k7c2ar3sz3qaawlbk-vulkan-loader-1.4.321.0/lib"]

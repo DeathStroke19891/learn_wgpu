@@ -1,28 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
+<html>
   <head>
-    <meta charset="UTF-8" />
-    <title>Learn wgpu</title>
-    <style>
-      canvas {
-        background-color: black;
-      }
-    </style>
+    <link data-trunk rel="rust" data-target-name="learn_wgpu" />
+    <link data-trunk rel="scss" href="./index.scss" />
   </head>
-
   <body>
-    <canvas id="canvas" width="800" height="600"></canvas>
-
-    {{ NO_MODULE }}
-    <script type="module">
-      // {{ MODULE }}
-    </script>
-
-    <script>
-      document.body.addEventListener("contextmenu", (e) => {
-        e.preventDefault();
-        e.stopPropagation();
-      });
-    </script>
+    <canvas id="canvas"></canvas>
   </body>
 </html>

@@ -10,6 +10,9 @@ pkgs.mkShell
     cargo
     bacon
 
+    trunk
+    dart-sass
+
     wayland
     libxkbcommon
     vulkan-headers
@@ -26,10 +29,6 @@ pkgs.mkShell
 
   shellHook = ''
     PATH=$PATH:/home/parzival/.cargo/bin
-    # if [ "$CARGO_BUILD_TARGET" != "wasm32-unknown-unknown" ]; then
-    #   export LIB_PATH="${pkgs.wayland}/lib:${pkgs.libxkbcommon}/lib:${pkgs.vulkan-loader}/lib"
-    #   export RUSTFLAGS="-Clink-args=-Wl,-rpath=$LIB_PATH"
-    # fi
     export RUSTC_WRAPPER=sccache
   '';
 }
