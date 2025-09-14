@@ -1,4 +1,4 @@
-use log::{error, info, warn};
+use tracing::{error, info, warn};
 
 #[cfg(not(target_arch = "wasm32"))]
 use tracing_subscriber;
@@ -126,7 +126,7 @@ impl State {
         self.color = Color {
             r: self.cursor_position.x / self.config.width as f64,
             g: self.cursor_position.y / self.config.height as f64,
-            b: 1.0,
+            b: 0.0,
             a: 1.0,
         }
     }
@@ -278,7 +278,7 @@ impl ApplicationHandler<State> for App {
                         state.resize(size.width, size.height);
                     }
                     Err(e) => {
-                        log::error!("Unable to render {}", e);
+                        error!("Unable to render {}", e);
                     }
                 }
             }
@@ -307,7 +307,6 @@ pub fn run() -> anyhow::Result<()> {
     }
     #[cfg(target_arch = "wasm32")]
     {
-        console_log::init_with_level(log::Level::Info).unwrap_throw();
         tracing_wasm::set_as_global_default();
     }
 
