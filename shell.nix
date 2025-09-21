@@ -6,7 +6,10 @@ pkgs.mkShell
     clippy
     rustfmt
     rustc
+
     rust-analyzer
+    wgsl-analyzer
+
     cargo
     bacon
 
